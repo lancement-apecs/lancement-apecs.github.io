@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon site avec un gros bouton rouge</title>
+
+    <script>
+        function adjustButtonSize() {
+            var button = document.getElementById('videoButton');
+            button.style.maxWidth = window.innerWidth + 'px';
+        }
+
+        window.addEventListener('resize', adjustButtonSize);
+
+        function showVideo() {
+            var button = document.getElementById('videoButton');
+            var videoContainer = document.getElementById('videoContainer');
+
+            button.style.display = 'none';
+            videoContainer.style.display = 'block';
+        }
+    </script>
+
     <style>
         body {
             margin: 0;
@@ -25,16 +43,16 @@
         }
     </style>
 </head>
-<body>
+<body onload="adjustButtonSize()">
     <div style="text-align: center; padding-top: 20px;">
-        <a href="#" id="videoButton">
-            <img src="https://lancement-apecs.github.io/img/stock-photo-big-red-button-330671738.jpg" alt="BOUTON ROUGE DE LANCEMENT" style="max-width: 200px; height: auto;">
+        <a href="#" id="videoButton" onclick="showVideo();">
+            <img src="https://lancement-apecs.github.io/img/stock-photo-big-red-button-330671738.jpg" alt="BOUTON ROUGE DE LANCEMENT" style="width: 100%; height: auto;">
         </a>
     </div>
 
     <div id="videoContainer" style="text-align: center; padding-top: 20px;">
         <video controls>
-            <source src="https://lancement-apecs.github.io/vid/video.mkv" type="video/mkv">
+            <source src="https://lancement-apecs.github.io/vid/video.mp4" type="video/mp4">
             <!-- Ajoutez d'autres sources vidéo ici pour une compatibilité multi-navigateurs -->
             Votre navigateur ne prend pas en charge la lecture de vidéos HTML5.
         </video>
