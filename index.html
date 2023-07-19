@@ -1,20 +1,49 @@
 <!DOCTYPE html>
-<html manifest="site.manifest">
+<html lang="fr">
 <head>
-	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-	
-	<style type="text/css">
-		#main{
-			width:900px;
-			margin:auto;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon site avec un gros bouton rouge</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #videoButton {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        #videoContainer {
+            display: none;
+            text-align: center;
+        }
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-	<div id="main" style="text-align: center;">
-	<img style="display: block; margin-left: auto; margin-right: auto;" src="https://lancement-apecs.github.io/img/stock-photo-big-red-button-330671738.jpg" alt="BOUTON ROUGE DE LANCEMENT" width="700" />
-	</div></body>
+    <div style="text-align: center; padding-top: 20px;">
+        <a href="#" id="videoButton">
+            <img src="https://lancement-apecs.github.io/img/stock-photo-big-red-button-330671738.jpg" alt="BOUTON ROUGE DE LANCEMENT" style="max-width: 200px; height: auto;">
+        </a>
+    </div>
 
+    <div id="videoContainer" style="text-align: center; padding-top: 20px;">
+        <video controls>
+            <source src="https://lancement-apecs.github.io/vid/video.mkv" type="video/mkv">
+            <!-- Ajoutez d'autres sources vidéo ici pour une compatibilité multi-navigateurs -->
+            Votre navigateur ne prend pas en charge la lecture de vidéos HTML5.
+        </video>
+    </div>
+
+    <script>
+        document.getElementById('videoButton').addEventListener('click', function() {
+            document.getElementById('videoContainer').style.display = 'block';
+        });
+    </script>
+</body>
 </html>
