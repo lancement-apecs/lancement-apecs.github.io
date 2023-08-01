@@ -6,13 +6,6 @@
     <title>Mon site avec un gros bouton rouge</title>
 
     <script>
-        function adjustButtonSize() {
-            var button = document.getElementById('videoButton');
-            button.style.maxWidth = window.innerWidth + 'px';
-        }
-
-        window.addEventListener('resize', adjustButtonSize);
-
         function showVideo() {
             var button = document.getElementById('videoButton');
             var videoContainer = document.getElementById('videoContainer');
@@ -27,31 +20,45 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         #videoButton {
             display: block;
             margin: 0 auto;
-            max-width: 100%;
+            max-width: 80%;
         }
         #videoContainer {
             display: none;
             text-align: center;
         }
         video {
-            max-width: 100%;
+            max-width: 80%;
             height: auto;
+        }
+
+        @media screen and (orientation: landscape) and (max-width: 767px) {
+            #videoButton img {
+                width: 50%;
+            }
+            video {
+                max-width: 50%;
+            }
         }
     </style>
 </head>
-<body onload="adjustButtonSize()">
-    <div style="text-align: center; padding-top: 20px;">
+<body>
+    <div style="text-align: center;">
         <a href="#" id="videoButton" onclick="showVideo();">
             <img src="https://lancement-apecs.github.io/img/stock-photo-big-red-button-330671738.jpg" alt="BOUTON ROUGE DE LANCEMENT" style="width: 60%; height: auto;">
         </a>
     </div>
 
     <div id="videoContainer" style="text-align: center; padding-top: 20px;">
-        <video controls>
+        <video controls autoplay>
             <source src="https://lancement-apecs.github.io/vid/video.mp4" type="video/mp4">
             <!-- Ajoutez d'autres sources vidéo ici pour une compatibilité multi-navigateurs -->
             Votre navigateur ne prend pas en charge la lecture de vidéos HTML5.
